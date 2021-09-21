@@ -20,14 +20,14 @@ public class TOProductos extends TOProveedores {
     public int cantidadMinima;
     public double precioCompra;
     public double precioVenta;
-    public String estadoProd;
+    public String estadoProducto;
     public double iva;
 
     public TOProductos() {
     }
 
-    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProd, double iva, int idUsuarioProveedor, String empresa, String estado, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario) {
-        super(idUsuarioProveedor, empresa, estado, nitEmpresa, telefonoEmpresa, nombres, apellidos, tipoUsuario);
+    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa);
         this.idProveedorProducto = idProveedorProducto;
         this.nombreProducto = nombreProducto;
         this.presentacion = presentacion;
@@ -36,12 +36,12 @@ public class TOProductos extends TOProveedores {
         this.cantidadMinima = cantidadMinima;
         this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
-        this.estadoProd = estadoProd;
+        this.estadoProducto = estadoProducto;
         this.iva = iva;
     }
 
-    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProd, double iva, int idUsuarioProveedor, String empresa, String estado, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario) {
-        super(idUsuarioProveedor, empresa, estado, nitEmpresa, telefonoEmpresa, direccionEmpresa, correoEmpresa, nombres, apellidos, tipoUsuario);
+    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, nombres, apellidos, tipoUsuario);
         this.idProveedorProducto = idProveedorProducto;
         this.nombreProducto = nombreProducto;
         this.presentacion = presentacion;
@@ -50,11 +50,67 @@ public class TOProductos extends TOProveedores {
         this.cantidadMinima = cantidadMinima;
         this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
-        this.estadoProd = estadoProd;
+        this.estadoProducto = estadoProducto;
         this.iva = iva;
     }
 
-    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProd, double iva) {
+    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
+        this.idProveedorProducto = idProveedorProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, direccionEmpresa, correoEmpresa);
+        this.idProveedorProducto = idProveedorProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, direccionEmpresa, correoEmpresa, nombres, apellidos, tipoUsuario);
+        this.idProveedorProducto = idProveedorProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, direccionEmpresa, correoEmpresa, nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
+        this.idProveedorProducto = idProveedorProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva) {
         this.idProveedorProducto = idProveedorProducto;
         this.codigoProducto = codigoProducto;
         this.nombreProducto = nombreProducto;
@@ -64,7 +120,97 @@ public class TOProductos extends TOProveedores {
         this.cantidadMinima = cantidadMinima;
         this.precioCompra = precioCompra;
         this.precioVenta = precioVenta;
-        this.estadoProd = estadoProd;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa);
+        this.idProveedorProducto = idProveedorProducto;
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, nombres, apellidos, tipoUsuario);
+        this.idProveedorProducto = idProveedorProducto;
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
+        this.idProveedorProducto = idProveedorProducto;
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, direccionEmpresa, correoEmpresa);
+        this.idProveedorProducto = idProveedorProducto;
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, direccionEmpresa, correoEmpresa, nombres, apellidos, tipoUsuario);
+        this.idProveedorProducto = idProveedorProducto;
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
+        this.iva = iva;
+    }
+
+    public TOProductos(int idProveedorProducto, String codigoProducto, String nombreProducto, String presentacion, String tipoProducto, int cantidad, int cantidadMinima, double precioCompra, double precioVenta, String estadoProducto, double iva, int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+        super(idUsuarioProveedor, empresa, estadoProveedor, nitEmpresa, telefonoEmpresa, direccionEmpresa, correoEmpresa, nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
+        this.idProveedorProducto = idProveedorProducto;
+        this.codigoProducto = codigoProducto;
+        this.nombreProducto = nombreProducto;
+        this.presentacion = presentacion;
+        this.tipoProducto = tipoProducto;
+        this.cantidad = cantidad;
+        this.cantidadMinima = cantidadMinima;
+        this.precioCompra = precioCompra;
+        this.precioVenta = precioVenta;
+        this.estadoProducto = estadoProducto;
         this.iva = iva;
     }
 
@@ -148,12 +294,12 @@ public class TOProductos extends TOProveedores {
         this.precioVenta = precioVenta;
     }
 
-    public String getEstadoProd() {
-        return estadoProd;
+    public String getEstadoProducto() {
+        return estadoProducto;
     }
 
-    public void setEstadoProd(String estadoProd) {
-        this.estadoProd = estadoProd;
+    public void setEstadoProducto(String estadoProducto) {
+        this.estadoProducto = estadoProducto;
     }
 
     public double getIva() {
@@ -164,4 +310,5 @@ public class TOProductos extends TOProveedores {
         this.iva = iva;
     }
 
+    
 }

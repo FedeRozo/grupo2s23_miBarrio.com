@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -117,21 +118,22 @@ public class ConexionDB {
         }
     }
     // este es incertar 
-    public int insertar(String nombreTabla, String[] columnas, String[] valores){
+    public int insertar(String nombreTabla, String[] valores){
         StringBuilder query = new StringBuilder ("INSERT INTO ");
         query.append(nombreTabla);
         query.append(" (");
-        for (int i = 0; i< columnas.length; i++){
-            query.append(columnas[i]);
-            if (i != columnas.length-1)
+        ArrayList<String> columnas = getColumnas(nombreTabla);
+        for (int i = 0; i< columnas.size(); i++){
+            query.append(columnas.get(i));
+            if (i != columnas.size() - 1)
                 query.append(", ");
         }
         query.append(") VALUES (");
-        for (int i = 0; i< columnas.length; i++){
+        for (int i = 0; i < valores.length; i++){
             query.append("'");
             query.append(valores[i]);
             query.append("'");
-            if (i != columnas.length-1)
+            if (i != valores.length-1)
                 query.append(", ");
         }
         query.append(")");
@@ -152,16 +154,17 @@ public class ConexionDB {
     } 
     
     // este es actualizar  
-    public boolean actualizar (String nombreTabla, String[] columnas, String[] valores, int id){
+    public boolean actualizar (String nombreTabla, String[] valores, int id){
+        ArrayList <String> columnas = getColumnas(nombreTabla);
         StringBuilder query = new StringBuilder ("UPDATE ");
         query.append(nombreTabla);
         query.append(" SET ");
-        for (int i = 0; i< columnas.length; i++){
-            query.append(columnas[i]);
+        for (int i = 0; i< valores.length; i++){
+            query.append(columnas.get(i));
             query.append(" = '");
             query.append(valores[i]);
             query.append("'");
-            if (i != columnas.length-1)
+            if (i != valores.length-1)
                 query.append(", ");
         }
         query.append("WHERE id ");
@@ -182,4 +185,49 @@ public class ConexionDB {
             return false;
         }
     } 
+    // eliminar registro
+    public boolean eliminar (String nombreTabla, int id){
+        StringBuilder query = new StringBuilder ("DELETE FROM ");
+        query.append(nombreTabla);
+        query.append("WHERE id ");
+        query.append(nombreTabla);
+        query.append(" = ");
+        query.append(id);
+        try{
+            stmt = con.createStatement();
+            return stmt.execute(query.toString());
+        }catch (SQLException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }catch (RuntimeException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }catch (Exception ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    } 
+    // consultar los titulos de cada columna. en fotos ver la ultima ojo
+    public ArrayList<String> getColumnas (String nombreTabla){
+        String query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '" +db + "' AND TABLE_NAME = '" + nombreTabla + " ORDER BY ORDINAL_POSITION";
+        ArrayList<String> columnas = new ArrayList<>();
+        try{
+            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                if (!rs.getString("COLUMN_NAME").equals("id" + nombreTabla))
+                    columnas.add(rs.getString("COLUMN_NAME"));
+            }
+            return columnas;
+        } catch (SQLException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (RuntimeException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (Exception ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 }

@@ -14,7 +14,7 @@ public class TOEmpleados extends ToUsuarios {
     private int idUsuariEmpleado;
     private double  salario;
     private String fechaIngreso;
-    private String estado;
+    private String estadoEmpleado;
     private String cargo;
     private String usuario;
     private String clave;
@@ -23,34 +23,44 @@ public class TOEmpleados extends ToUsuarios {
     public TOEmpleados() {
     }
 
-    public TOEmpleados(int idUsuariEmpleado, double salario, String estado, String cargo, String usuario, String clave, String nombres, String apellidos, String tipoUsuario) {
+    public TOEmpleados(int idUsuariEmpleado, double salario, String estadoEmpleado, String cargo, String usuario, String clave, String nombres, String apellidos, String tipoUsuario) {
         super(nombres, apellidos, tipoUsuario);
         this.idUsuariEmpleado = idUsuariEmpleado;
         this.salario = salario;
-        this.estado = estado;
+        this.estadoEmpleado = estadoEmpleado;
         this.cargo = cargo;
         this.usuario = usuario;
         this.clave = clave;
     }
 
-    public TOEmpleados(int idUsuariEmpleado, double salario, String fechaIngreso, String estado, String cargo, String usuario, String clave, String fechaEgreso, String nombres, String apellidos, String tipoUsuario) {
+    public TOEmpleados(int idUsuariEmpleado, double salario, String estadoEmpleado, String cargo, String usuario, String clave, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+        super(nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
+        this.idUsuariEmpleado = idUsuariEmpleado;
+        this.salario = salario;
+        this.estadoEmpleado = estadoEmpleado;
+        this.cargo = cargo;
+        this.usuario = usuario;
+        this.clave = clave;
+    }
+
+    public TOEmpleados(int idUsuariEmpleado, double salario, String fechaIngreso, String estadoEmpleado, String cargo, String usuario, String clave, String fechaEgreso, String nombres, String apellidos, String tipoUsuario) {
         super(nombres, apellidos, tipoUsuario);
         this.idUsuariEmpleado = idUsuariEmpleado;
         this.salario = salario;
         this.fechaIngreso = fechaIngreso;
-        this.estado = estado;
+        this.estadoEmpleado = estadoEmpleado;
         this.cargo = cargo;
         this.usuario = usuario;
         this.clave = clave;
         this.fechaEgreso = fechaEgreso;
     }
 
-    public TOEmpleados(int idUsuariEmpleado, double salario, String fechaIngreso, String estado, String cargo, String usuario, String clave, String fechaEgreso, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+    public TOEmpleados(int idUsuariEmpleado, double salario, String fechaIngreso, String estadoEmpleado, String cargo, String usuario, String clave, String fechaEgreso, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
         super(nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
         this.idUsuariEmpleado = idUsuariEmpleado;
         this.salario = salario;
         this.fechaIngreso = fechaIngreso;
-        this.estado = estado;
+        this.estadoEmpleado = estadoEmpleado;
         this.cargo = cargo;
         this.usuario = usuario;
         this.clave = clave;
@@ -89,12 +99,12 @@ public class TOEmpleados extends ToUsuarios {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getEstadoEmpleado() {
+        return estadoEmpleado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstadoEmpleado(String estadoEmpleado) {
+        this.estadoEmpleado = estadoEmpleado;
     }
 
     public String getCargo() {
@@ -129,5 +139,7 @@ public class TOEmpleados extends ToUsuarios {
         this.fechaEgreso = fechaEgreso;
     }
     
-    
 }
+
+
+    

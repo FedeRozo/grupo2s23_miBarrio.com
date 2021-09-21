@@ -13,7 +13,7 @@ public class TOProveedores extends ToUsuarios {
     public int idProveedor;
     public int idUsuarioProveedor;
     public String empresa;
-    public String estado;
+    public String estadoProveedor;
     public String nitEmpresa;
     public String telefonoEmpresa;
     public String direccionEmpresa;
@@ -22,38 +22,63 @@ public class TOProveedores extends ToUsuarios {
     public TOProveedores() {
     }
 
-    public TOProveedores(int idUsuarioProveedor, String empresa, String estado, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario) {
-        super(nombres, apellidos, tipoUsuario);
+    public TOProveedores(int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa) {
         this.idUsuarioProveedor = idUsuarioProveedor;
         this.empresa = empresa;
-        this.estado = estado;
+        this.estadoProveedor = estadoProveedor;
         this.nitEmpresa = nitEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
     }
 
-    public TOProveedores(int idUsuarioProveedor, String empresa, String estado, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario) {
+    public TOProveedores(int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario) {
         super(nombres, apellidos, tipoUsuario);
         this.idUsuarioProveedor = idUsuarioProveedor;
         this.empresa = empresa;
-        this.estado = estado;
+        this.estadoProveedor = estadoProveedor;
         this.nitEmpresa = nitEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
-        this.direccionEmpresa = direccionEmpresa;
-        this.correoEmpresa = correoEmpresa;
     }
 
-    public TOProveedores(int idUsuarioProveedor, String empresa, String estado, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+    public TOProveedores(int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
         super(nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
         this.idUsuarioProveedor = idUsuarioProveedor;
         this.empresa = empresa;
-        this.estado = estado;
+        this.estadoProveedor = estadoProveedor;
+        this.nitEmpresa = nitEmpresa;
+        this.telefonoEmpresa = telefonoEmpresa;
+    }
+
+    public TOProveedores(int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa) {
+        this.idUsuarioProveedor = idUsuarioProveedor;
+        this.empresa = empresa;
+        this.estadoProveedor = estadoProveedor;
         this.nitEmpresa = nitEmpresa;
         this.telefonoEmpresa = telefonoEmpresa;
         this.direccionEmpresa = direccionEmpresa;
         this.correoEmpresa = correoEmpresa;
     }
-    
-    
+
+    public TOProveedores(int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario) {
+        super(nombres, apellidos, tipoUsuario);
+        this.idUsuarioProveedor = idUsuarioProveedor;
+        this.empresa = empresa;
+        this.estadoProveedor = estadoProveedor;
+        this.nitEmpresa = nitEmpresa;
+        this.telefonoEmpresa = telefonoEmpresa;
+        this.direccionEmpresa = direccionEmpresa;
+        this.correoEmpresa = correoEmpresa;
+    }
+
+    public TOProveedores(int idUsuarioProveedor, String empresa, String estadoProveedor, String nitEmpresa, String telefonoEmpresa, String direccionEmpresa, String correoEmpresa, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+        super(nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
+        this.idUsuarioProveedor = idUsuarioProveedor;
+        this.empresa = empresa;
+        this.estadoProveedor = estadoProveedor;
+        this.nitEmpresa = nitEmpresa;
+        this.telefonoEmpresa = telefonoEmpresa;
+        this.direccionEmpresa = direccionEmpresa;
+        this.correoEmpresa = correoEmpresa;
+    }
 
     public int getIdProveedor() {
         return idProveedor;
@@ -79,12 +104,12 @@ public class TOProveedores extends ToUsuarios {
         this.empresa = empresa;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getEstadoProveedor() {
+        return estadoProveedor;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstadoProveedor(String estadoProveedor) {
+        this.estadoProveedor = estadoProveedor;
     }
 
     public String getNitEmpresa() {
@@ -118,6 +143,6 @@ public class TOProveedores extends ToUsuarios {
     public void setCorreoEmpresa(String correoEmpresa) {
         this.correoEmpresa = correoEmpresa;
     }
-    
-    
+
+   
 }

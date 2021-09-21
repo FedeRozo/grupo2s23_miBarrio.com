@@ -13,24 +13,23 @@ public class TOClientes extends ToUsuarios {
     public int idClientes;
     public int idUsuarioCliente;
     public String credito;
-    public String estado;
+    public String estadoCliente;
 
     public TOClientes() {
     }
 
-    public TOClientes(int idClientes, int idUsuarioCliente, String credito, String estado, String nombres, String apellidos, String tipoUsuario) {
+    public TOClientes(int idUsuarioCliente, String credito, String estadoCliente, String nombres, String apellidos, String tipoUsuario) {
         super(nombres, apellidos, tipoUsuario);
-        this.idClientes = idClientes;
         this.idUsuarioCliente = idUsuarioCliente;
         this.credito = credito;
-        this.estado = estado;
+        this.estadoCliente = estadoCliente;
     }
 
-    public TOClientes(int idUsuarioCliente, String credito, String estado, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+    public TOClientes(int idUsuarioCliente, String credito, String estadoCliente, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
         super(nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
         this.idUsuarioCliente = idUsuarioCliente;
         this.credito = credito;
-        this.estado = estado;
+        this.estadoCliente = estadoCliente;
     }
 
     public int getIdClientes() {
@@ -57,12 +56,13 @@ public class TOClientes extends ToUsuarios {
         this.credito = credito;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getEstadoCliente() {
+        return estadoCliente;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstadoCliente(String estadoCliente) {
+        this.estadoCliente = estadoCliente;
     }
-    
+
+     
 }
