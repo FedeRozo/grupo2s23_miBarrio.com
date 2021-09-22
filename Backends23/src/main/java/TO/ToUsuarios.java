@@ -9,7 +9,7 @@ package TO;
  *
  * @author federicorozomurcia
  */
-public class ToUsuarios {
+public class TOUsuarios {
     private int idUsuarios;
     private String nombres;
     private String apellidos;
@@ -20,16 +20,16 @@ public class ToUsuarios {
     private String direccion;
     private String correo;
 
-    public ToUsuarios() {
+    public TOUsuarios() {
     }
 
-    public ToUsuarios(String nombres, String apellidos, String tipoUsuario) {
+    public TOUsuarios(String nombres, String apellidos, String tipoUsuario) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoUsuario = tipoUsuario;
     }
 
-    public ToUsuarios(String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+    public TOUsuarios(String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.tipoUsuario = tipoUsuario;

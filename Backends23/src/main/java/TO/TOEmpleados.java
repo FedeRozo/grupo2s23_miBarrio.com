@@ -9,7 +9,7 @@ package TO;
  *
  * @author federicorozomurcia
  */
-public class TOEmpleados extends ToUsuarios {
+public class TOEmpleados extends TOUsuarios {
     private int idEmpleado;
     private int idUsuariEmpleado;
     private double  salario;

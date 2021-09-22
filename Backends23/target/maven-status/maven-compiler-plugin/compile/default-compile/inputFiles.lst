@@ -1,7 +1,12 @@
 /Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/TO/TOEmpleados.java
 /Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/TO/TOProductos.java
 /Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/TO/TOProveedores.java
+/Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/TO/TOUsuarios.java
+/Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/controller/CtrUsuarios.java
 /Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/TO/TOClientes.java
-/Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/TO/ToUsuarios.java
+/Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/DAO/DAOEmpleados.java
+/Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/DAO/DAOUsuarios.java
 /Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/TO/TOVentas.java
+/Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/controller/CtrEmpleados.java
+/Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/db/Prueva.java
 /Users/federicorozomurcia/NetBeansProjects/Backends23/src/main/java/db/ConexionDB.java

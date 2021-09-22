@@ -5,7 +5,7 @@
  */
 package DAO;
 
-import TO.ToUsuarios;
+import TO.TOUsuarios;
 import db.ConexionDB;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -29,13 +29,13 @@ public class DAOUsuarios {
     }
 
     //consiltar y crear usuarios.
-    public ArrayList <ToUsuarios> consultarUsuarios() {
-        ToUsuarios usuario;
-        ArrayList<ToUsuarios> usuarios = new ArrayList<>();
+    public ArrayList <TOUsuarios> consultarUsuarios() {
+        TOUsuarios usuario;
+        ArrayList<TOUsuarios> usuarios = new ArrayList<>();
         try {
             ResultSet rs = con.consultar(nombreTabla);
             while (rs.next()){
-                usuario = new ToUsuarios();
+                usuario = new TOUsuarios();
                 usuario.setNombres(rs.getString("nombres"));
                 usuario.setApellidos(rs.getString("apellidos"));
                 usuario.setTipoUsuario(rs.getString("tipoUsuario"));
@@ -53,7 +53,7 @@ public class DAOUsuarios {
         }       
     }
 
-    public int isertarUsuarios(ToUsuarios usuario){
+    public int isertarUsuarios(TOUsuarios usuario){
         String[] Valores = {usuario.getNombres(), usuario.getApellidos(), usuario.getTipoUsuario(), usuario.getTipoDocumento(), usuario.getDocumento(), usuario.getTelefono(), usuario.getDireccion(), usuario.getCorreo()};
         try {
            return con.insertar(nombreTabla, Valores);
@@ -63,7 +63,7 @@ public class DAOUsuarios {
         }
     }
     // actualizar en foto
-    public boolean modificarUsuarios(ToUsuarios usuario){
+    public boolean modificarUsuarios(TOUsuarios usuario){
         String[] Valores = {usuario.getNombres(), usuario.getApellidos(), usuario.getTipoUsuario(), usuario.getTipoDocumento(), usuario.getDocumento(), usuario.getTelefono(), usuario.getDireccion(), usuario.getCorreo()};
         try {
            return con.actualizar(nombreTabla, Valores, usuario.getIdUsuarios());

@@ -9,7 +9,7 @@ package TO;
  *
  * @author federicorozomurcia
  */
-public class TOProveedores extends ToUsuarios {
+public class TOProveedores extends TOUsuarios {
     public int idProveedor;
     public int idUsuarioProveedor;
     public String empresa;

@@ -1,6 +1,8 @@
+package controller;
+
 
 import DAO.DAOUsuarios;
-import TO.ToUsuarios;
+import TO.TOUsuarios;
 import java.util.ArrayList;
 
 /*
@@ -16,20 +18,20 @@ import java.util.ArrayList;
 public class CtrUsuarios {
     DAOUsuarios usuariosDAO;
 
-    public CtrUsuarios(DAOUsuarios usuarioDAO) {
+    public CtrUsuarios() {
         usuariosDAO = new DAOUsuarios();
     }
     
     //consiltar y crear usuarios.
-    public ArrayList <ToUsuarios> consultarUsuarios() {
+    public ArrayList <TOUsuarios> consultarUsuarios() {
             return usuariosDAO.consultarUsuarios();      
     }
 
-    public int isertarUsuarios(ToUsuarios usuario){
+    public int isertarUsuarios(TOUsuarios usuario){
            return usuariosDAO.isertarUsuarios(usuario);
     }
     // actualizar en foto
-    public boolean modificarUsuarios(ToUsuarios usuario){
+    public boolean modificarUsuarios(TOUsuarios usuario){
             return usuariosDAO.modificarUsuarios(usuario);
     }
     //Eleiminar en foto
