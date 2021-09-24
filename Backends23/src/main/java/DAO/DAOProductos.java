@@ -22,8 +22,8 @@ public class DAOProductos {
 
     public DAOProductos() {
         con = new ConexionDB();
-        nombreTabla = "Productos";
-        nombreVista = "vistaproductos";
+        this.nombreTabla = "Productos";
+        this.nombreVista = "vistaproductos";
     }
 
     public ArrayList <TOProductos> consultarProductos() {
