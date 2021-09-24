@@ -23,8 +23,8 @@ public class DAOProveedores {
 
     public DAOProveedores() {
         con = new ConexionDB();
-        nombreTabla = "Proveedores";
-        nombreVista = "vistaproveedores";
+        this.nombreTabla = "Proveedores";
+        this.nombreVista = "vistaproveedores";
     }
 
     // consultar datos empleados
