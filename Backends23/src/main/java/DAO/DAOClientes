@@ -33,6 +33,7 @@ public class DAOClientes {
             ResultSet rs = con.consultar(nombreVista);
             while (rs.next()) {
                 cliente = new TOClientes();
+                cliente.setIdCliente(Integer.valueOf(rs.getString("idUsuarioCliente")));
                 cliente.setCredito(rs.getString("credito"));
                 cliente.setEstadoCliente(rs.getString("estadoCliente"));
                 clientes.add(cliente);
