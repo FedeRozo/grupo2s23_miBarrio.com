@@ -39,12 +39,20 @@ public class DAOProveedores {
                 proveedor.setEmpresa(rs.getString("empresa"));
                 proveedor.setEstadoProveedor(rs.getString("estadoProveedor"));
                 proveedor.setNitEmpresa(rs.getString("nitEmpresa"));
+                proveedor.setTelefonoEmpresa(rs.getString("telefonoEmpresa"));
+                proveedor.setDireccionEmpresa(rs.getString("direccionEmpresa"));
+                proveedor.setCorreoEmpresa(rs.getString("correoEmpresa"));
+                proveedor.setNombres(rs.getString("nombres"));
+                proveedor.setApellidos(rs.getString("apellidos"));
+                proveedor.setTipoUsuario(rs.getString("tipoUsuario"));
+                proveedor.setTipoDocumento(rs.getString("tipoDocumento"));
+                proveedor.setDocumento(rs.getString("documento"));
                 proveedor.setTelefono(rs.getString("telefono"));
                 proveedor.setDireccion(rs.getString("direccion"));
                 proveedor.setCorreo(rs.getString("correo"));
                 proveedores.add(proveedor);
             }
-            return null;
+            return proveedores;
         } catch (SQLException ex) {
             System.out.print("Error en DAOProveedores.consultarUsuarios: " + ex.getMessage());
             return null;
