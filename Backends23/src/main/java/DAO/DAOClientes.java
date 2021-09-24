@@ -22,8 +22,8 @@ public class DAOClientes {
 
     public DAOClientes() {
         con = new ConexionDB();
-        nombreTabla = "Clientes";
-        nombreVista = "vistaclientes";
+        this.nombreTabla = "Clientes";
+        this.nombreVista = "vistaclientes";
     }
 
     public ArrayList <TOClientes> consultarClientes() {
