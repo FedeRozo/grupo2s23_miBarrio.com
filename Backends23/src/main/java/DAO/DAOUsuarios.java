@@ -46,7 +46,7 @@ public class DAOUsuarios {
                 usuario.setCorreo(rs.getString("correo"));
                 usuarios.add (usuario);
             }
-            return null;
+            return usuarios;
         } catch (SQLException ex) {
             System.out.print("Error en DAOUsuario.consultarUsuarios: " + ex.getMessage());
             return null;
