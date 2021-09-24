@@ -35,6 +35,7 @@ public class DAOProveedores {
             ResultSet rs = con.consultar(nombreVista);
             while (rs.next()) {
                 proveedor = new TOProveedores();
+                proveedor.setIdProveedor(Integer.valueOf(rs.getString("idUsuarioProveedor")));
                 proveedor.setEmpresa(rs.getString("empresa"));
                 proveedor.setEstadoProveedor(rs.getString("estadoProveedor"));
                 proveedor.setNitEmpresa(rs.getString("nitEmpresa"));
