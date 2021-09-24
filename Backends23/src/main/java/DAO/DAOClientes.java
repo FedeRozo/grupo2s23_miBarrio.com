@@ -36,9 +36,17 @@ public class DAOClientes {
                 cliente.setIdCliente(Integer.valueOf(rs.getString("idUsuarioCliente")));
                 cliente.setCredito(rs.getString("credito"));
                 cliente.setEstadoCliente(rs.getString("estadoCliente"));
+                cliente.setNombres(rs.getString("nombres"));
+                cliente.setApellidos(rs.getString("apellidos"));
+                cliente.setTipoUsuario(rs.getString("tipoUsuario"));
+                cliente.setTipoDocumento(rs.getString("tipoDocumento"));
+                cliente.setDocumento(rs.getString("documento"));
+                cliente.setTelefono(rs.getString("telefono"));
+                cliente.setDireccion(rs.getString("direccion"));
+                cliente.setCorreo(rs.getString("correo"));
                 clientes.add(cliente);
             }
-            return null;
+            return clientes;
         } catch (SQLException ex) {
             System.out.print("Error en DAOClientes.consultarUsuarios: " + ex.getMessage());
             return null;
