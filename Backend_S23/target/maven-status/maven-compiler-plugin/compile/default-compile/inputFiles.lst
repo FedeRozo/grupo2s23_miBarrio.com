@@ -2,6 +2,7 @@
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/TO/TOUsuarios.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/TO/TOEmpleados.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/DAO/DAOEmpleados.java
+/Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/DAO/DAOProductos.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/DAO/DAOUsuarios.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/controller/CtrClientes.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/DAO/DAOClientes.java
@@ -10,5 +11,6 @@
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/TO/TOProveedores.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/TO/TOClientes.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/controller/CtrEmpleados.java
+/Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/controller/CtrProductos.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/controller/CtrProveedores.java
 /Users/federicorozomurcia/NetBeansProjects/Backend_S23/src/main/java/DAO/DAOProveedores.java

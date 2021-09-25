@@ -72,7 +72,6 @@ public class DAOEmpleados {
     }
     // actualizar empleado
     public boolean modificarEmpleado(TOEmpleados empleado){
-        //String[] Valores = {usuario.getNombres(), usuario.getApellidos(), usuario.getTipoUsuario(), usuario.getTipoDocumento(), usuario.getDocumento(), usuario.getTelefono(), usuario.getDireccion(), usuario.getCorreo()};
         String[] Valores = {String.valueOf(empleado.getSalario()), String.valueOf(empleado.getIdUsuariEmpleado()), empleado.getFechaIngreso(), empleado.getEstadoEmpleado(), empleado.getCargo(), empleado.getUsuario(), empleado.getClave(), empleado.getFechaEgreso()};
         try {
            return con.actualizar(nombreTabla, Valores, empleado.getIdEmpleado());
