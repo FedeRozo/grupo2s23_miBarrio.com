@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `Clientes`;
 CREATE TABLE `Clientes` (
   `idClientes` int(11) NOT NULL AUTO_INCREMENT,
   `idUsuarioCliente` int(11) NOT NULL,
-  `credito` varchar(45) NOT NULL,
+  `credito` double NOT NULL,
   `estadoCliente` varchar(45) NOT NULL,
   PRIMARY KEY (`idClientes`),
   UNIQUE KEY `idClientes_UNIQUE` (`idClientes`),
@@ -40,7 +40,7 @@ CREATE TABLE `Clientes` (
 
 LOCK TABLES `Clientes` WRITE;
 /*!40000 ALTER TABLE `Clientes` DISABLE KEYS */;
-INSERT INTO `Clientes` VALUES (1,4,'0','activo');
+INSERT INTO `Clientes` VALUES (1,4,0,'activo');
 /*!40000 ALTER TABLE `Clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 14:39:07
+-- Dump completed on 2021-09-25 14:23:04

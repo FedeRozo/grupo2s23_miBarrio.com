@@ -90,7 +90,7 @@ SET character_set_client = utf8;
 /*!50001 CREATE VIEW `vistaempleados` AS SELECT 
  1 AS `idEmpleado`,
  1 AS `salario`,
- 1 AS `idUsuariEmpleado`,
+ 1 AS `idUsuarioEmpleado`,
  1 AS `fechaIngreso`,
  1 AS `estadoEmpleado`,
  1 AS `cargo`,
@@ -185,7 +185,7 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `vistaempleados` AS select `empleados`.`idEmpleado` AS `idEmpleado`,`empleados`.`salario` AS `salario`,`empleados`.`idUsuariEmpleado` AS `idUsuariEmpleado`,`empleados`.`fechaIngreso` AS `fechaIngreso`,`empleados`.`estadoEmpleado` AS `estadoEmpleado`,`empleados`.`cargo` AS `cargo`,`empleados`.`usuario` AS `usuario`,`empleados`.`clave` AS `clave`,`empleados`.`fechaEgreso` AS `fechaEgreso`,`usuarios`.`idUsuarios` AS `idUsuarios`,`usuarios`.`nombres` AS `nombres`,`usuarios`.`apellidos` AS `apellidos`,`usuarios`.`tipoUsuario` AS `tipoUsuario`,`usuarios`.`tipoDocumento` AS `tipoDocumento`,`usuarios`.`documento` AS `documento`,`usuarios`.`telefono` AS `telefono`,`usuarios`.`direccion` AS `direccion`,`usuarios`.`correo` AS `correo` from (`empleados` join `usuarios` on((`empleados`.`idUsuariEmpleado` = `usuarios`.`idUsuarios`))) */;
+/*!50001 VIEW `vistaempleados` AS select `empleados`.`idEmpleado` AS `idEmpleado`,`empleados`.`salario` AS `salario`,`empleados`.`idUsuarioEmpleado` AS `idUsuarioEmpleado`,`empleados`.`fechaIngreso` AS `fechaIngreso`,`empleados`.`estadoEmpleado` AS `estadoEmpleado`,`empleados`.`cargo` AS `cargo`,`empleados`.`usuario` AS `usuario`,`empleados`.`clave` AS `clave`,`empleados`.`fechaEgreso` AS `fechaEgreso`,`usuarios`.`idUsuarios` AS `idUsuarios`,`usuarios`.`nombres` AS `nombres`,`usuarios`.`apellidos` AS `apellidos`,`usuarios`.`tipoUsuario` AS `tipoUsuario`,`usuarios`.`tipoDocumento` AS `tipoDocumento`,`usuarios`.`documento` AS `documento`,`usuarios`.`telefono` AS `telefono`,`usuarios`.`direccion` AS `direccion`,`usuarios`.`correo` AS `correo` from (`empleados` join `usuarios` on((`empleados`.`idUsuarioEmpleado` = `usuarios`.`idUsuarios`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -217,4 +217,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 14:39:07
+-- Dump completed on 2021-09-25 14:23:04

@@ -24,18 +24,18 @@ DROP TABLE IF EXISTS `Ventas`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Ventas` (
   `idVentas` int(11) NOT NULL AUTO_INCREMENT,
-  `idVendevor` int(11) NOT NULL,
+  `idVendevorVenta` int(11) NOT NULL,
   `fechaVenta` datetime NOT NULL,
-  `idCliente` int(11) NOT NULL,
+  `idClienteVenta` int(11) NOT NULL,
   `totalVenta` double NOT NULL,
   `totalIva` double NOT NULL,
   `estadoVenta` varchar(45) NOT NULL,
   PRIMARY KEY (`idVentas`),
   UNIQUE KEY `idFactura_UNIQUE` (`idVentas`),
-  KEY `VentasVendedor_idx` (`idVendevor`),
-  KEY `ClienteVentas_idx` (`idCliente`),
-  CONSTRAINT `ClienteVentas` FOREIGN KEY (`idCliente`) REFERENCES `Clientes` (`idClientes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `VentasVendedor` FOREIGN KEY (`idVendevor`) REFERENCES `Empleados` (`idEmpleado`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `VentasVendedor_idx` (`idVendevorVenta`),
+  KEY `ClienteVentas_idx` (`idClienteVenta`),
+  CONSTRAINT `ClienteVentas` FOREIGN KEY (`idClienteVenta`) REFERENCES `Clientes` (`idClientes`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `VentasVendedor` FOREIGN KEY (`idVendevorVenta`) REFERENCES `Empleados` (`idEmpleado`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 14:39:06
+-- Dump completed on 2021-09-25 14:23:03

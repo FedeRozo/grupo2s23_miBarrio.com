@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `Empleados`;
 CREATE TABLE `Empleados` (
   `idEmpleado` int(11) NOT NULL AUTO_INCREMENT,
   `salario` double NOT NULL,
-  `idUsuariEmpleado` int(11) NOT NULL,
+  `idUsuarioEmpleado` int(11) NOT NULL,
   `fechaIngreso` date DEFAULT NULL,
   `estadoEmpleado` varchar(45) NOT NULL,
   `cargo` varchar(45) NOT NULL,
@@ -34,9 +34,9 @@ CREATE TABLE `Empleados` (
   `fechaEgreso` date DEFAULT NULL,
   PRIMARY KEY (`idEmpleado`),
   UNIQUE KEY `idVendedor_UNIQUE` (`idEmpleado`),
-  KEY `UsuarioVendedor_idx` (`idUsuariEmpleado`),
-  CONSTRAINT `UsuarioVendedor` FOREIGN KEY (`idUsuariEmpleado`) REFERENCES `Usuarios` (`idUsuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  KEY `UsuarioVendedor_idx` (`idUsuarioEmpleado`),
+  CONSTRAINT `UsuarioVendedor` FOREIGN KEY (`idUsuarioEmpleado`) REFERENCES `Usuarios` (`idUsuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `Empleados` (
 
 LOCK TABLES `Empleados` WRITE;
 /*!40000 ALTER TABLE `Empleados` DISABLE KEYS */;
-INSERT INTO `Empleados` VALUES (1,1200000,1,NULL,'activo','administrador','FedeRozo','Sj123',NULL);
+INSERT INTO `Empleados` VALUES (2,1200000,1,NULL,'activo','Administrador','FedeR','1234fe',NULL),(3,1200000,2,NULL,'activo','Vendedor','Carol','1134Ca',NULL);
 /*!40000 ALTER TABLE `Empleados` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-23 14:39:07
+-- Dump completed on 2021-09-25 14:23:03
