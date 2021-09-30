@@ -95,6 +95,47 @@ public class ConexionDB {
             return null;
         }
     }
+    
+    public ArrayList<String> getColumnas (String nombreTabla){
+        String query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '" +db + "' AND TABLE_NAME = '" + nombreTabla + " ORDER BY ORDINAL_POSITION";
+        ArrayList<String> columnas = new ArrayList<>();
+        try{
+            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = stmt.executeQuery(query);
+            while (rs.next()){
+                if (!rs.getString("COLUMN_NAME").equals("id" + nombreTabla))
+                    columnas.add(rs.getString("COLUMN_NAME"));
+            }
+            return columnas;
+        } catch (SQLException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (RuntimeException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (Exception ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    public ResultSet consultarVista(String nombreTabla){
+         String query = "SELECT * FROM vista" + nombreTabla;
+         try {
+             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+             rs = stmt.executeQuery(query);
+             return rs;   
+         } catch (SQLException ex){
+             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+             return null;
+         }catch (RuntimeException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (Exception ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+     }
+    
     public ResultSet consultarXid(String nombreTabla, int id){
         String query = "SELECT * FROM " + nombreTabla + " WHERE id" + nombreTabla + " = " + id;
         try{
@@ -112,7 +153,25 @@ public class ConexionDB {
             return null;
         }
     }
-    // este es incertar 
+    
+    public ResultSet consultarWhere(String nombreTabla, String condiciones){
+        String query = "SELECT * FROM " + nombreTabla + " WHERE" + condiciones;
+        try{
+            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = stmt.executeQuery(query);
+            return rs;
+        } catch (SQLException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (RuntimeException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (Exception ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    // este es insertar 
     public int insertar(String nombreTabla, String[] valores){
         StringBuilder query = new StringBuilder ("INSERT INTO ");
         query.append(nombreTabla);
@@ -203,26 +262,5 @@ public class ConexionDB {
         }
     } 
     // consultar los titulos de cada columna. en fotos ver la ultima ojo
-    public ArrayList<String> getColumnas (String nombreTabla){
-        String query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '" +db + "' AND TABLE_NAME = '" + nombreTabla + " ORDER BY ORDINAL_POSITION";
-        ArrayList<String> columnas = new ArrayList<>();
-        try{
-            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-            rs = stmt.executeQuery(query);
-            while (rs.next()){
-                if (!rs.getString("COLUMN_NAME").equals("id" + nombreTabla))
-                    columnas.add(rs.getString("COLUMN_NAME"));
-            }
-            return columnas;
-        } catch (SQLException ex){
-            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }catch (RuntimeException ex){
-            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }catch (Exception ex){
-            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
-        }
-    }
+    
 }
