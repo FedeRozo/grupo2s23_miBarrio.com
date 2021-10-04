@@ -532,9 +532,9 @@
                                                 <td>{{empleado.nombres}}</td>
                                                 <td>{{empleado.apellidos}}</td>
                                                 <td>{{empleado.cargo}}</td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit" ng-click="ts.editar()"><i class="fa fa-pencil color-muted m-r-5"></i> </a></span>
+                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Edit" ng-click="ts.seleccionar(empleado.idEmpleados)"><i class="fa fa-pencil color-muted m-r-5"></i> </a></span>
                                                 </td>
-                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Close" ng-click="ts.eliminar()"><i class="fa fa-close color-danger"></i></a></span>
+                                                <td><span><a href="#" data-toggle="tooltip" data-placement="top" title="Close" ng-click="ts.eliminar(empleado.idEmpleados)"><i class="fa fa-close color-danger"></i></a></span>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -601,33 +601,49 @@
        var controlador = this;
        
        controlador.listar = function (){
-           var parametros = {opcion: "listar"};
-           $http({
-               method: 'POST',
-               url: 'http://localhost:8080/Backend_S23/Controller/empleadoController.jsp',
-               params: parametros
-           }).then (function(res){
-               console.log(res);
-               controlador.empleados = res.data;
+           
+                var parametros = {opcion: "listar"};
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:8080/Backend_S23/Controller/empleadoController.jsp',
+                    params: parametros
+                }).then (function(res){
+                    console.log(res);
+                    controlador.empleados = res.data;
                
-           });
-               
+                });
+            
            };
            controlador.insertar = function (){
-               controlador.empleado.tipoUsuario = "empleado";
-           var parametros = {opcion: "insertar",data: JSON.stringify(controlador.empleado)};
-           $http({
-               method: 'POST',
-               url: 'http://localhost:8080/Backend_S23/Controller/empleadoController.jsp',
-               params: parametros
-           }).then (function(res){
-               console.log(res);
-               controlador.respuesta = res.data;
-               controlador.listar();
-               controlador.limpiar();
+                if (controlador.empleado.idEmpleados === "undefined"){
+                    var parametros = {opcion: "insertar",data: JSON.stringify(controlador.empleado)};
+                        $http({
+                            method: 'POST',
+                            url: 'http://localhost:8080/Backend_S23/Controller/empleadoController.jsp',
+                            params: parametros
+                        }).then (function(res){
+                            console.log(res);
+                            controlador.respuesta = res.data;
+                            controlador.listar();
+                            controlador.limpiar();
                
-           });
+                        });
+                }else{
+                    var parametros = {opcion: "actualizar",data: JSON.stringify(controlador.empleado)};
+                        $http({
+                            method: 'POST',
+                            url: 'http://localhost:8080/Backend_S23/Controller/empleadoController.jsp',
+                            params: parametros
+                        }).then (function(res){
+                        
+                            console.log(res);
+                            controlador.respuesta = res.data;
+                            controlador.listar();
+                            controlador.limpiar();
                
+                        });
+                
+                }
            };
            
            controlador.limpiar = function (){
@@ -645,7 +661,35 @@
                controlador.empleado.salario ="";
                controlador.empleado.estadoEmpleado ="",
                controlador.empleado.fechaIngreso="";
+               controlador.listar();
            };
+           
+           controlador.seleccionar = function(id){
+                for(var i = 0; i< controlador.empleados.length; i++){
+                    if (id === controlador.empleados[i].idEmpleados){
+                        controlador.empleado = controlador.empleados[i];
+                   }   
+                 }
+           };
+           
+           controlador.eliminar = function(id){
+                for(var i = 0; i< controlador.empleados.length; i++){
+                    if (id === controlador.empleados[i].idEmpleados){
+                        controlador.empleado = controlador.empleados[i];
+                   }   
+                 }
+                        var parametros = {opcion: "eliminar",data: JSON.stringify(controlador.empleado)};
+                        $http({
+                            method: 'POST',
+                            url: 'http://localhost:8080/Backend_S23/Controller/empleadoController.jsp',
+                            params: parametros
+                        }).then (function(res){
+                            console.log(res);
+                            controlador.listar();
+                        });
+                   
+           };
+           
            
    }
 </script>

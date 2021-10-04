@@ -190,7 +190,7 @@ public class ConexionDB {
             if (i != valores.length-1)
                 query.append(", ");
         }
-        query.append("WHERE id ");
+        query.append(" WHERE id");
         query.append(nombreTabla);
         query.append(" = ");
         query.append(id);
@@ -212,7 +212,7 @@ public class ConexionDB {
     public boolean eliminar (String nombreTabla, int id){
         StringBuilder query = new StringBuilder ("DELETE FROM ");
         query.append(nombreTabla);
-        query.append("WHERE id ");
+        query.append(" WHERE id");
         query.append(nombreTabla);
         query.append(" = ");
         query.append(id);

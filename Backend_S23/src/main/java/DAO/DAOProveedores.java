@@ -34,7 +34,7 @@ public class DAOProveedores {
             ResultSet rs = con.consultar(nombreVista);
             while (rs.next()) {
                 proveedor = new TOProveedores();
-                proveedor.setIdProveedor((rs.getInt("idProveedor")));
+                proveedor.setIdProveedores((rs.getInt("idProveedor")));
                 proveedor.setIdUsuarioProveedor(rs.getInt("idUsuarioProveedor"));
                 proveedor.setEmpresa(rs.getString("empresa"));
                 proveedor.setEstadoProveedor(rs.getString("estadoProveedor"));
@@ -72,7 +72,7 @@ public class DAOProveedores {
     public boolean modificarProveedor(TOProveedores proveedor) {
         String[] Valores = {proveedor.getEmpresa(), proveedor.getEstadoProveedor(), proveedor.getNitEmpresa(), proveedor.getTelefonoEmpresa(), proveedor.getDireccionEmpresa(), proveedor.getCorreoEmpresa()};
         try {
-            return con.actualizar(nombreTabla, Valores, proveedor.getIdProveedor());
+            return con.actualizar(nombreTabla, Valores, proveedor.getIdProveedores());
         } catch (Exception ex) {
             System.out.print("Error en DAOProveedores.modificarProveedor: " + ex.getMessage());
             return false;

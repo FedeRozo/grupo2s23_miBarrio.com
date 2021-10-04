@@ -36,7 +36,7 @@ CREATE TABLE `ProductosVendidos` (
   KEY `FacturaVenta_idx` (`idVentasProducto`),
   KEY `ProductoVendido_idx` (`idProductoVentas`),
   CONSTRAINT `FacturaVenta` FOREIGN KEY (`idVentasProducto`) REFERENCES `Ventas` (`idVentas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `ProductoVendido` FOREIGN KEY (`idProductoVentas`) REFERENCES `Productos` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `ProductoVendido` FOREIGN KEY (`idProductoVentas`) REFERENCES `Productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 14:23:03
+-- Dump completed on 2021-10-04 16:11:11

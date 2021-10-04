@@ -76,9 +76,14 @@ public class DAOEmpleados {
     }
     // actualizar empleado
     public boolean modificarEmpleado(TOEmpleados empleado){
-        String[] Valores = {String.valueOf(empleado.getSalario()), String.valueOf(empleado.getIdUsuariEmpleado()), empleado.getFechaIngreso(), empleado.getEstadoEmpleado(), empleado.getCargo(), empleado.getUsuario(), empleado.getClave(), empleado.getFechaEgreso()};
+        
         try {
-           return con.actualizar(nombreTabla, Valores, empleado.getIdEmpleados());
+            if (empleado.getFechaIngreso()== null);
+                empleado.setFechaIngreso("1900-01-01");
+            if (empleado.getFechaEgreso()== null);
+                empleado.setFechaEgreso("1900-01-01");
+            String[] Valores = {String.valueOf(empleado.getSalario()), String.valueOf(empleado.getIdUsuariEmpleado()), empleado.getFechaIngreso(), empleado.getEstadoEmpleado(), empleado.getCargo(), empleado.getUsuario(), empleado.getClave(), empleado.getFechaEgreso()};
+            return con.actualizar(nombreTabla, Valores, empleado.getIdEmpleados());
         } catch (Exception ex) {
             System.out.print("Error en DAOEmpleado.modificarUsuarios: " + ex.getMessage());
             return false;

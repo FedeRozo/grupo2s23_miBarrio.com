@@ -10,7 +10,7 @@ package TO;
  * @author federicorozomurcia
  */
 public class TOProveedores extends TOUsuarios {
-    public int idProveedor;
+    public int idProveedores;
     public int idUsuarioProveedor;
     public String empresa;
     public String estadoProveedor;
@@ -80,12 +80,12 @@ public class TOProveedores extends TOUsuarios {
         this.correoEmpresa = correoEmpresa;
     }
 
-    public int getIdProveedor() {
-        return idProveedor;
+    public int getIdProveedores() {
+        return idProveedores;
     }
 
-    public void setIdProveedor(int idProveedor) {
-        this.idProveedor = idProveedor;
+    public void setIdProveedores(int idProveedores) {
+        this.idProveedores = idProveedores;
     }
 
     public int getIdUsuarioProveedor() {

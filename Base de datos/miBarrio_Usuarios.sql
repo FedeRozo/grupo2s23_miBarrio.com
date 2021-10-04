@@ -34,7 +34,7 @@ CREATE TABLE `Usuarios` (
   `correo` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idUsuarios`),
   UNIQUE KEY `idUsuarios_UNIQUE` (`idUsuarios`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `Usuarios` (
 
 LOCK TABLES `Usuarios` WRITE;
 /*!40000 ALTER TABLE `Usuarios` DISABLE KEYS */;
-INSERT INTO `Usuarios` VALUES (1,'federico','rozo','empleado','cc','81003223','6018767456','carrera 2b # 12 - 02','gato23@gmail.com'),(2,'carolina ','rozo','empleado','cc','20543678','6018767456','carrera 2b # 12 - 02','carito@gmail.com'),(3,'daniel ','figeroa','proveedor','cc','95435678','3214895673','av boyaca 34 - 24','danie@gmail.com'),(4,'camila','castro','cliente','cc','345879','345890234','calle 23 # 24 - 43','cami-castro@gmail.com'),(5,'Danilo','Navas','cliente','cc','10935893','321897479','calle 8 # 11 - 48','daniloco@gmail.com');
+INSERT INTO `Usuarios` VALUES (1,'Federico','Rozo Murcia','empleado','Cedula de ciudadania','81003223','6018767456','carrera 2b # 12 - 02','gato23@gmail.com'),(2,'Carolina','Rozo Murcia','empleado','Cedula de ciudadania','20543678','6018767456','carrera 2b # 12 - 02','carito@gmail.com'),(3,'daniel ','figeroa','proveedor','cc','95435678','3214895673','av boyaca 34 - 24','danie@gmail.com'),(4,'camila','castro','cliente','cc','345879','345890234','calle 23 # 24 - 43','cami-castro@gmail.com'),(5,'Danilo','Navas','cliente','cc','10935893','321897479','calle 8 # 11 - 48','daniloco@gmail.com'),(6,'Camilo','Murcia','empleado','Cedula de ciudadania','78476384','3209845753','calle 11 # 5a 23','cami@gmail.com'),(7,'Gloria','Murcia','empleado','Cedula de ciudadania','8947284','3209841245','Calle 5 # 2 -89','Loria@gmail.com'),(8,'Carmen','Delgado','empleado','Cedula de ciudadania','984763456','3209847615','calle24 # 12 - 40','Caemen@gmail.com'),(9,'Jose','Murcia','Empleado','Cedula de ciudadania','89034726','3202187462','calle 2 # 18 - 23','jose@gmail.com');
 /*!40000 ALTER TABLE `Usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 14:23:03
+-- Dump completed on 2021-10-04 16:11:11

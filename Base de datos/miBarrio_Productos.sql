@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Productos`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Productos` (
-  `idProducto` int(11) NOT NULL AUTO_INCREMENT,
+  `idProductos` int(11) NOT NULL AUTO_INCREMENT,
   `idProveedorProducto` int(11) NOT NULL,
   `codigoProducto` varchar(45) DEFAULT NULL,
   `nombreProducto` varchar(45) NOT NULL,
@@ -35,10 +35,10 @@ CREATE TABLE `Productos` (
   `precioVenta` double NOT NULL,
   `estadoProducto` varchar(45) NOT NULL,
   `iva` double NOT NULL,
-  PRIMARY KEY (`idProducto`),
-  UNIQUE KEY `idProducto_UNIQUE` (`idProducto`),
+  PRIMARY KEY (`idProductos`),
+  UNIQUE KEY `idProducto_UNIQUE` (`idProductos`),
   KEY `ProveedorProducto_idx` (`idProveedorProducto`),
-  CONSTRAINT `ProveedorProducto` FOREIGN KEY (`idProveedorProducto`) REFERENCES `Proveedores` (`idProveedor`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `ProveedorProducto` FOREIGN KEY (`idProveedorProducto`) REFERENCES `Proveedores` (`idProveedores`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -61,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 14:23:03
+-- Dump completed on 2021-10-04 16:11:11

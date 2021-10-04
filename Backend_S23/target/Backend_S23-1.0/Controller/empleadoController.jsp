@@ -19,9 +19,14 @@ if ("listar".equals(opcion)){
     TOEmpleados empleadosTo = new Gson().fromJson(empleado, TOEmpleados.class);
     empleadosCtr.isertarEmpleado(usuariosTo, empleadosTo);
 }else if("actualizar".equals(opcion)){
-    
+    String datos = request.getParameter("data");
+    TOUsuarios usuariosTo = new Gson().fromJson(datos, TOUsuarios.class);
+    TOEmpleados empleadosTo = new Gson().fromJson(datos, TOEmpleados.class);
+    empleadosCtr.modificarEmpleado(usuariosTo, empleadosTo);
 }else if("eliminar".equals(opcion)){
-    
+    String datos = request.getParameter("data");
+    TOEmpleados empleadosTo = new Gson().fromJson(datos, TOEmpleados.class);
+    empleadosCtr.eliminarEmpleado(empleadosTo);
 }else{
     out.print("Opcion no Valida");
 }

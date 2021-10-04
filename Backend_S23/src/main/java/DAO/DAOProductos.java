@@ -33,7 +33,7 @@ public class DAOProductos {
             ResultSet rs = con.consultar(nombreVista);
             while (rs.next()){
                 producto = new TOProductos();
-                producto.setIdProducto(rs.getInt("idProducto"));
+                producto.setIdProductos(rs.getInt("idProducto"));
                 producto.setIdProveedorProducto((rs.getInt("idProveedorProducto")));
                 producto.setCodigoProducto(rs.getString("codigoProducto"));
                 producto.setNombreProducto(rs.getString("nombreProducto"));
@@ -45,7 +45,7 @@ public class DAOProductos {
                 producto.setPrecioVenta(rs.getDouble("precioVenta"));
                 producto.setEstadoProducto(rs.getString("estadoProducto"));
                 producto.setIva(rs.getDouble("iva"));
-                producto.setIdProveedor((rs.getInt("idProveedor")));
+                producto.setIdProveedores((rs.getInt("idProveedor")));
                 producto.setIdUsuarioProveedor(rs.getInt("idUsuarioProveedor"));
                 producto.setEmpresa(rs.getString("empresa"));
                 producto.setEstadoProveedor(rs.getString("estadoProveedor"));
@@ -77,7 +77,7 @@ public class DAOProductos {
         //String[] Valores = {usuario.getNombres(), usuario.getApellidos(), usuario.getTipoUsuario(), usuario.getTipoDocumento(), usuario.getDocumento(), usuario.getTelefono(), usuario.getDireccion(), usuario.getCorreo()};
         String[] Valores = {String.valueOf(producto.getIdProveedorProducto()), String.valueOf(producto.getCodigoProducto()), producto.getNombreProducto(), producto.getPresentacion(), producto.getTipoProducto(), String.valueOf(producto.getCantidad()),String.valueOf(producto.getCantidadMinima()), producto.getEstadoProducto() ,String.valueOf(producto.getIva()) };
         try {
-           return con.actualizar(nombreTabla, Valores, producto.getIdProducto());
+           return con.actualizar(nombreTabla, Valores, producto.getIdProductos());
         } catch (Exception ex) {
             System.out.print("Error en DAOEmpleado.modificarUsuarios: " + ex.getMessage());
             return false;

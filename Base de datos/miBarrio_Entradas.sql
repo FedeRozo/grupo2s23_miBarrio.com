@@ -32,7 +32,7 @@ CREATE TABLE `Entradas` (
   UNIQUE KEY `idEntradas_UNIQUE` (`idEntradas`),
   KEY `EntradasCompras_idx` (`idCompraEntrada`),
   KEY `EntradaProducto_idx` (`idProductoEntrada`),
-  CONSTRAINT `EntradaProducto` FOREIGN KEY (`idProductoEntrada`) REFERENCES `Productos` (`idProducto`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `EntradaProducto` FOREIGN KEY (`idProductoEntrada`) REFERENCES `Productos` (`idProductos`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `EntradasCompras` FOREIGN KEY (`idCompraEntrada`) REFERENCES `Compras` (`idCompras`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 14:23:03
+-- Dump completed on 2021-10-04 16:11:11

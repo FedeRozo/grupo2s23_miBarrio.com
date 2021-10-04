@@ -10,7 +10,7 @@ package TO;
  * @author federicorozomurcia
  */
 public class TOProductos extends TOProveedores {
-    public int idProducto;
+    public int idProductos;
     public int idProveedorProducto;
     public String codigoProducto;
     public String nombreProducto;
@@ -214,12 +214,12 @@ public class TOProductos extends TOProveedores {
         this.iva = iva;
     }
 
-    public int getIdProducto() {
-        return idProducto;
+    public int getIdProductos() {
+        return idProductos;
     }
 
-    public void setIdProducto(int idProducto) {
-        this.idProducto = idProducto;
+    public void setIdProductos(int idProductos) {
+        this.idProductos = idProductos;
     }
 
     public int getIdProveedorProducto() {

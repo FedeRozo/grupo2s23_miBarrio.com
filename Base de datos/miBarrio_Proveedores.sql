@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `Proveedores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Proveedores` (
-  `idProveedor` int(11) NOT NULL AUTO_INCREMENT,
+  `idProveedores` int(11) NOT NULL AUTO_INCREMENT,
   `idUsuarioProveedor` int(11) NOT NULL,
   `empresa` varchar(45) NOT NULL,
   `estadoProveedor` varchar(45) NOT NULL,
@@ -31,8 +31,8 @@ CREATE TABLE `Proveedores` (
   `telefonoEmpresa` varchar(45) NOT NULL,
   `direccionEmpresa` varchar(45) DEFAULT NULL,
   `correoEmpresa` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`idProveedor`),
-  UNIQUE KEY `idProveedor_UNIQUE` (`idProveedor`),
+  PRIMARY KEY (`idProveedores`),
+  UNIQUE KEY `idProveedor_UNIQUE` (`idProveedores`),
   KEY `UsuarioProveedor_idx` (`idUsuarioProveedor`),
   CONSTRAINT `UsuarioProveedor` FOREIGN KEY (`idUsuarioProveedor`) REFERENCES `Usuarios` (`idUsuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 14:23:03
+-- Dump completed on 2021-10-04 16:11:11

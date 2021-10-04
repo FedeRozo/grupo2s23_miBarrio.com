@@ -23,20 +23,20 @@ DROP TABLE IF EXISTS `Empleados`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `Empleados` (
-  `idEmpleado` int(11) NOT NULL AUTO_INCREMENT,
+  `idEmpleados` int(11) NOT NULL AUTO_INCREMENT,
   `salario` double NOT NULL,
   `idUsuarioEmpleado` int(11) NOT NULL,
-  `fechaIngreso` date DEFAULT NULL,
+  `fechaIngreso` varchar(20) DEFAULT NULL,
   `estadoEmpleado` varchar(45) NOT NULL,
   `cargo` varchar(45) NOT NULL,
   `usuario` varchar(45) NOT NULL,
   `clave` varchar(10) NOT NULL,
-  `fechaEgreso` date DEFAULT NULL,
-  PRIMARY KEY (`idEmpleado`),
-  UNIQUE KEY `idVendedor_UNIQUE` (`idEmpleado`),
+  `fechaEgreso` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`idEmpleados`),
+  UNIQUE KEY `idVendedor_UNIQUE` (`idEmpleados`),
   KEY `UsuarioVendedor_idx` (`idUsuarioEmpleado`),
   CONSTRAINT `UsuarioVendedor` FOREIGN KEY (`idUsuarioEmpleado`) REFERENCES `Usuarios` (`idUsuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -45,7 +45,7 @@ CREATE TABLE `Empleados` (
 
 LOCK TABLES `Empleados` WRITE;
 /*!40000 ALTER TABLE `Empleados` DISABLE KEYS */;
-INSERT INTO `Empleados` VALUES (2,1200000,1,NULL,'activo','Administrador','FedeR','1234fe',NULL),(3,1200000,2,NULL,'activo','Vendedor','Carol','1134Ca',NULL);
+INSERT INTO `Empleados` VALUES (2,1200000,1,'1900-01-01','Activo','Administrador','FedeR','1234fe','1900-01-01'),(3,1200000,2,'1900-01-01','Activo','Vendedor','Carol','1134Ca','1900-01-01'),(4,1000000,8,'1900-01-01','Activo','Vendedor','CarDel','123456','1900-01-01'),(5,1200000,9,'1900-01-01','Activo','Almacenista','Jose','123489','1900-01-01');
 /*!40000 ALTER TABLE `Empleados` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-25 14:23:03
+-- Dump completed on 2021-10-04 16:11:11

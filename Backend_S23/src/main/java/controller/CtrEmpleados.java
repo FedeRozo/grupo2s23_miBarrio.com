@@ -31,16 +31,24 @@ public class CtrEmpleados {
 
     public int isertarEmpleado(TOUsuarios usuario, TOEmpleados empleado){
             usuariosCtr = new CtrUsuarios();
+            usuario.setTipoUsuario("Empleado");
             empleado.setIdUsuariEmpleado(usuariosCtr.isertarUsuarios(usuario));
            return empleadosDAO.isertarEmpleado(empleado);
     }
     // actualizar en foto
-    public boolean modificarEmpleado(TOEmpleados empleado){
+    public boolean modificarEmpleado(TOUsuarios usuario, TOEmpleados empleado){
+            usuariosCtr = new CtrUsuarios();
+            usuario.setIdUsuarios(empleado.getIdUsuariEmpleado());
+            usuariosCtr.modificarUsuarios(usuario);
             return empleadosDAO.modificarEmpleado(empleado);
     }
     //Eleiminar en foto
-    public boolean eliminarEmpleado(int id){
-            return empleadosDAO.eliminarEmpleado(id);
+    public boolean eliminarEmpleado(TOEmpleados empleado){
+        
+            empleadosDAO.eliminarEmpleado(empleado.getIdEmpleados());
+            usuariosCtr = new CtrUsuarios();
+            return usuariosCtr.eliminarUsuarios(empleado.getIdUsuariEmpleado());
+            
     }
     
     
