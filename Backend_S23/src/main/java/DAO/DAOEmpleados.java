@@ -33,7 +33,7 @@ public class DAOEmpleados {
             ResultSet rs = con.consultar(nombreVista);
             while (rs.next()){
                 empleado = new TOEmpleados();
-                empleado.setIdEmpleado(rs.getInt("idEmpleado"));
+                empleado.setIdEmpleados(rs.getInt("idEmpleados"));
                 empleado.setIdUsuariEmpleado((rs.getInt("idUsuarioEmpleado")));
                 empleado.setSalario((rs.getDouble("salario")));
                 empleado.setFechaIngreso(rs.getString("fechaIngreso"));
@@ -61,9 +61,13 @@ public class DAOEmpleados {
     
     // insertar un nuevo empleado.
     public int isertarEmpleado(TOEmpleados empleado){
-        //String[] Valores = {usuario.getNombres(), usuario.getApellidos(), usuario.getTipoUsuario(), usuario.getTipoDocumento(), usuario.getDocumento(), usuario.getTelefono(), usuario.getDireccion(), usuario.getCorreo()};
-        String[] Valores = {String.valueOf(empleado.getSalario()), String.valueOf(empleado.getIdUsuariEmpleado()), empleado.getFechaIngreso(), empleado.getEstadoEmpleado(), empleado.getCargo(), empleado.getUsuario(), empleado.getClave(), empleado.getFechaEgreso()};
         try {
+            if (empleado.getFechaIngreso()== null);
+                empleado.setFechaIngreso("1900-01-01");
+            if (empleado.getFechaEgreso()== null);
+                empleado.setFechaEgreso("1900-01-01");
+            String[] Valores = {String.valueOf(empleado.getSalario()), String.valueOf(empleado.getIdUsuariEmpleado()), empleado.getFechaIngreso(), empleado.getEstadoEmpleado(), empleado.getCargo(), empleado.getUsuario(), empleado.getClave(), empleado.getFechaEgreso()};
+        
            return con.insertar(nombreTabla, Valores);
         } catch (Exception ex) {
             System.out.print("Error en DAOEmpleado.insertarUsuarios: " + ex.getMessage());
@@ -74,7 +78,7 @@ public class DAOEmpleados {
     public boolean modificarEmpleado(TOEmpleados empleado){
         String[] Valores = {String.valueOf(empleado.getSalario()), String.valueOf(empleado.getIdUsuariEmpleado()), empleado.getFechaIngreso(), empleado.getEstadoEmpleado(), empleado.getCargo(), empleado.getUsuario(), empleado.getClave(), empleado.getFechaEgreso()};
         try {
-           return con.actualizar(nombreTabla, Valores, empleado.getIdEmpleado());
+           return con.actualizar(nombreTabla, Valores, empleado.getIdEmpleados());
         } catch (Exception ex) {
             System.out.print("Error en DAOEmpleado.modificarUsuarios: " + ex.getMessage());
             return false;
@@ -89,6 +93,38 @@ public class DAOEmpleados {
             return false;
         }
     }
+   
+    //funcion de login consulta por la clave y usuario
     
+    public TOEmpleados verificarEmpleados (String usuario, String clave){
+        TOEmpleados empleadoTo = new TOEmpleados();
+        try {
+            ResultSet rs = con.consultarXwhere(nombreVista, "usuario = '" + usuario + "' AND clave = '" + clave + "'");
+            while (rs.next()){
+                empleadoTo.setIdEmpleados(rs.getInt("idEmpleados"));
+                empleadoTo.setIdUsuariEmpleado((rs.getInt("idUsuarioEmpleado")));
+                empleadoTo.setSalario((rs.getDouble("salario")));
+                empleadoTo.setFechaIngreso(rs.getString("fechaIngreso"));
+                empleadoTo.setEstadoEmpleado(rs.getString("estadoEmpleado"));
+                empleadoTo.setCargo(rs.getString("cargo"));
+                empleadoTo.setUsuario(rs.getString("usuario"));
+                empleadoTo.setClave(rs.getString("clave"));
+                empleadoTo.setFechaEgreso(rs.getString("fechaEgreso")); 
+                empleadoTo.setNombres(rs.getString("nombres"));
+                empleadoTo.setApellidos(rs.getString("apellidos"));
+                empleadoTo.setTipoUsuario(rs.getString("tipoUsuario"));
+                empleadoTo.setTipoDocumento(rs.getString("tipoDocumento"));
+                empleadoTo.setDocumento(rs.getString("documento"));
+                empleadoTo.setTelefono(rs.getString("telefono"));
+                empleadoTo.setDireccion(rs.getString("direccion"));
+                empleadoTo.setCorreo(rs.getString("correo"));
+                empleadoTo.setIdUsuarios(rs.getInt("idUsuarios"));
+            }
+            return empleadoTo;
+        } catch (SQLException ex) {
+            System.out.print("Error en DAOEmpleado.verificarUsuario: " + ex.getMessage());
+            return null;
+        }     
+    }
     
 }

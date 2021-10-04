@@ -112,6 +112,24 @@ public class ConexionDB {
             return null;
         }
     }
+    //Consulta por WHERE
+    public ResultSet consultarXwhere (String nombreTabla, String consulta){
+        String query = "SELECT * FROM " + nombreTabla + " WHERE " + consulta;
+        try{
+            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+            rs = stmt.executeQuery(query);
+            return rs;
+        } catch (SQLException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (RuntimeException ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }catch (Exception ex){
+            Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
     // este es incertar 
     public int insertar(String nombreTabla, String[] valores){
         StringBuilder query = new StringBuilder ("INSERT INTO ");
@@ -134,8 +152,18 @@ public class ConexionDB {
         query.append(")");
         try{
             stmt = con.createStatement();
-            rs = stmt.executeQuery(query.toString());
-            return rs.getInt("id" + nombreTabla);
+            int columnasAfectadas = stmt.executeUpdate(query.toString(), Statement.RETURN_GENERATED_KEYS);
+            //rs = stmt.executeQuery(query.toString());
+            //return rs.getInt("id" + nombreTabla);
+            if(columnasAfectadas ==0){
+                throw new SQLException("no se pudo guardar el registro");
+            } 
+            ResultSet idGenerados = stmt.getGeneratedKeys();
+            if (idGenerados.next()){
+            return  idGenerados.getInt(1);
+            } else {
+                return 0;
+            }
         }catch (SQLException ex){
             Logger.getLogger(ConexionDB.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
@@ -204,7 +232,7 @@ public class ConexionDB {
     } 
     // consultar los titulos de cada columna. en fotos ver la ultima ojo
     public ArrayList<String> getColumnas (String nombreTabla){
-        String query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '" +db + "' AND TABLE_NAME = '" + nombreTabla + " ORDER BY ORDINAL_POSITION";
+        String query = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = '" +db + "' AND TABLE_NAME = '" + nombreTabla + "' ORDER BY ORDINAL_POSITION";
         ArrayList<String> columnas = new ArrayList<>();
         try{
             stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);

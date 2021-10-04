@@ -3,6 +3,7 @@ package controller;
 
 import DAO.DAOEmpleados;
 import TO.TOEmpleados;
+import TO.TOUsuarios;
 import java.util.ArrayList;
 
 /*
@@ -28,9 +29,9 @@ public class CtrEmpleados {
             return empleadosDAO.consultarEmpleados();      
     }
 
-    public int isertarEmpleado(TOEmpleados empleado){
+    public int isertarEmpleado(TOUsuarios usuario, TOEmpleados empleado){
             usuariosCtr = new CtrUsuarios();
-            empleado.setIdUsuariEmpleado(usuariosCtr.isertarUsuarios(empleado));
+            empleado.setIdUsuariEmpleado(usuariosCtr.isertarUsuarios(usuario));
            return empleadosDAO.isertarEmpleado(empleado);
     }
     // actualizar en foto
@@ -42,4 +43,8 @@ public class CtrEmpleados {
             return empleadosDAO.eliminarEmpleado(id);
     }
     
+    
+    public TOEmpleados verificarEmpleados(String usuario, String clave) {
+            return empleadosDAO.verificarEmpleados(usuario, clave);      
+    }            
 }

@@ -5,12 +5,16 @@
  */
 package TO;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /**
  *
  * @author federicorozomurcia
  */
 public class TOEmpleados extends TOUsuarios {
-    private int idEmpleado;
+    private int idEmpleados;
     private int idUsuariEmpleado;
     private double  salario;
     private String fechaIngreso;
@@ -19,8 +23,12 @@ public class TOEmpleados extends TOUsuarios {
     private String usuario;
     private String clave;
     private String fechaEgreso;
-
+    public static SimpleDateFormat fecha = new SimpleDateFormat("YYYY-MM-dd");
+    public static Calendar calendario = new GregorianCalendar(); 
+    
     public TOEmpleados() {
+        calendario.set(1900, 0, 1);
+        this.fechaEgreso = fecha.format(calendario.getTime());
     }
 
     public TOEmpleados(int idUsuariEmpleado, double salario, String estadoEmpleado, String cargo, String usuario, String clave, String nombres, String apellidos, String tipoUsuario) {
@@ -67,12 +75,12 @@ public class TOEmpleados extends TOUsuarios {
         this.fechaEgreso = fechaEgreso;
     }
 
-    public int getIdEmpleado() {
-        return idEmpleado;
+    public int getIdEmpleados() {
+        return idEmpleados;
     }
 
-    public void setIdEmpleado(int idEmpleado) {
-        this.idEmpleado = idEmpleado;
+    public void setIdEmpleados(int idEmpleados) {
+        this.idEmpleados = idEmpleados;
     }
 
     public int getIdUsuariEmpleado() {
