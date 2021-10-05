@@ -28,7 +28,7 @@ public class CtrProductos {
 
     public int isertarProductos (TOProductos producto){
             proveedoresCtr = new CtrProveedores();
-            producto.setIdProveedorProducto(proveedoresCtr.isertarProveedores(producto));
+            //producto.setIdProveedorProducto(proveedoresCtr.insertarProveedores(producto));
            return productosDAO.isertarProducto(producto);
     }
     // actualizar en foto

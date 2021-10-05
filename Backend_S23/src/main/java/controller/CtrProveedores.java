@@ -7,6 +7,7 @@ package controller;
 
 import DAO.DAOProveedores;
 import TO.TOProveedores;
+import TO.TOUsuarios;
 import java.util.ArrayList;
 
 /**
@@ -26,17 +27,26 @@ public class CtrProveedores {
             return proveedoresDAO.consultarProveedores();      
     }
 
-    public int isertarProveedores (TOProveedores proveedor){
+    public int insertarProveedores (TOUsuarios usuario, TOProveedores proveedor){
             usuariosCtr = new CtrUsuarios();
-            proveedor.setIdUsuarioProveedor(usuariosCtr.isertarUsuarios(proveedor));
-           return proveedoresDAO.insertarProveedor(proveedor);
+            usuario.setTipoUsuario("Proveedor");
+            proveedor.setIdUsuarioProveedor(usuariosCtr.isertarUsuarios(usuario));
+            return proveedoresDAO.insertarProveedor(proveedor);
+
     }
     // actualizar en foto
-    public boolean modificarProveedor (TOProveedores proveedor){
-            return proveedoresDAO.modificarProveedor(proveedor);
+    public boolean modificarProveedor (TOUsuarios usuario, TOProveedores proveedor){
+        usuariosCtr = new CtrUsuarios();
+        usuario.setIdUsuarios(proveedor.getIdUsuarioProveedor());
+        usuariosCtr.modificarUsuarios(usuario);
+        return proveedoresDAO.modificarProveedor(proveedor);
+           
     }
     //Eleiminar en foto
-    public boolean eliminarProveedor (int id){
-            return proveedoresDAO.eliminarProveedor(id);
+    public boolean eliminarProveedor (TOProveedores proveedor){
+            
+            proveedoresDAO.eliminarProveedor(proveedor.getIdProveedores());
+            usuariosCtr = new CtrUsuarios();
+            return usuariosCtr.eliminarUsuarios(proveedor.getIdUsuarioProveedor());
     }
 }

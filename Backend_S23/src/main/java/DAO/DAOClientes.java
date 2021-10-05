@@ -35,7 +35,7 @@ public class DAOClientes {
                 cliente = new TOClientes();
                 cliente.setIdClientes(rs.getInt("idClientes"));
                 cliente.setIdUsuarioCliente(rs.getInt("idUsuarioCliente"));
-                cliente.setCredito(rs.getDouble("credito"));
+                cliente.setCredito(rs.getString("credito"));
                 cliente.setEstadoCliente(rs.getString("estadoCliente"));
                 cliente.setNombres(rs.getString("nombres"));
                 cliente.setApellidos(rs.getString("apellidos"));
@@ -55,8 +55,9 @@ public class DAOClientes {
     }
 
     public int insertarCliente(TOClientes cliente) {
-        String[] Valores = {String.valueOf(cliente.getCredito()), cliente.getEstadoCliente()};
         try {
+            String[] Valores = {String.valueOf(cliente.getIdUsuarioCliente()), cliente.getCredito(), cliente.getEstadoCliente()};
+        
             return con.insertar(nombreTabla, Valores);
         } catch (Exception ex) {
             System.out.print("Error en DAOClientes.insertarUsuarios: " + ex.getMessage());
@@ -65,9 +66,9 @@ public class DAOClientes {
     }
 
     public boolean modificarCliente(TOClientes cliente) {
-        String[] Valores = {String.valueOf(cliente.getCredito()), cliente.getEstadoCliente()};
-        
         try {
+            String[] Valores = {String.valueOf(cliente.getCredito()), cliente.getEstadoCliente()};
+        
             return con.actualizar(nombreTabla, Valores, cliente.getIdClientes());
         } catch (Exception ex) {
             System.out.print("Error en DAOClientes.modificarCliente: " + ex.getMessage());

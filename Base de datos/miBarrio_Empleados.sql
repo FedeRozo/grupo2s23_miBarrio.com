@@ -45,7 +45,7 @@ CREATE TABLE `Empleados` (
 
 LOCK TABLES `Empleados` WRITE;
 /*!40000 ALTER TABLE `Empleados` DISABLE KEYS */;
-INSERT INTO `Empleados` VALUES (2,1200000,1,'1900-01-01','Activo','Administrador','FedeR','1234fe','1900-01-01'),(3,1200000,2,'1900-01-01','Activo','Vendedor','Carol','1134Ca','1900-01-01'),(4,1000000,8,'1900-01-01','Activo','Vendedor','CarDel','123456','1900-01-01'),(5,1200000,9,'1900-01-01','Activo','Almacenista','Jose','123489','1900-01-01');
+INSERT INTO `Empleados` VALUES (2,1200000,1,'1900-01-01','Activo','Administrador','FedeR','1234fe','1900-01-01'),(3,1200000,2,'1900-01-01','Activo','Vendedor','Carol','1134Ca','1900-01-01'),(4,1000000,8,'1900-01-01','Activo','Vendedor','CarDel','123456','1900-01-01'),(5,1200000,9,'1900-01-01','Activo','Almacenista','Jose','123489','1900-01-01'),(6,1000000,17,'1900-01-01','Activo','Almacenista','Homero','123457','1900-01-01');
 /*!40000 ALTER TABLE `Empleados` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-04 16:11:11
+-- Dump completed on 2021-10-05 17:44:18

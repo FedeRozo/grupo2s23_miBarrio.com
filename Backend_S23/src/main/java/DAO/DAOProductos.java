@@ -23,7 +23,7 @@ public class DAOProductos {
     public DAOProductos() {
         con = new ConexionDB ();
         nombreTabla = "Productos";
-        nombreVista = "vistaproducto";
+        nombreVista = "vistaproductos";
     }
     // consultar datos empleados
     public ArrayList <TOProductos> consultarProductos (){
@@ -33,7 +33,7 @@ public class DAOProductos {
             ResultSet rs = con.consultar(nombreVista);
             while (rs.next()){
                 producto = new TOProductos();
-                producto.setIdProductos(rs.getInt("idProducto"));
+                producto.setIdProductos(rs.getInt("idProductos"));
                 producto.setIdProveedorProducto((rs.getInt("idProveedorProducto")));
                 producto.setCodigoProducto(rs.getString("codigoProducto"));
                 producto.setNombreProducto(rs.getString("nombreProducto"));
@@ -45,7 +45,7 @@ public class DAOProductos {
                 producto.setPrecioVenta(rs.getDouble("precioVenta"));
                 producto.setEstadoProducto(rs.getString("estadoProducto"));
                 producto.setIva(rs.getDouble("iva"));
-                producto.setIdProveedores((rs.getInt("idProveedor")));
+                producto.setIdProveedores((rs.getInt("idProveedores")));
                 producto.setIdUsuarioProveedor(rs.getInt("idUsuarioProveedor"));
                 producto.setEmpresa(rs.getString("empresa"));
                 producto.setEstadoProveedor(rs.getString("estadoProveedor"));

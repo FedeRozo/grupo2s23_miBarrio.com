@@ -34,7 +34,7 @@ public class DAOProveedores {
             ResultSet rs = con.consultar(nombreVista);
             while (rs.next()) {
                 proveedor = new TOProveedores();
-                proveedor.setIdProveedores((rs.getInt("idProveedor")));
+                proveedor.setIdProveedores((rs.getInt("idProveedores")));
                 proveedor.setIdUsuarioProveedor(rs.getInt("idUsuarioProveedor"));
                 proveedor.setEmpresa(rs.getString("empresa"));
                 proveedor.setEstadoProveedor(rs.getString("estadoProveedor"));
@@ -60,7 +60,7 @@ public class DAOProveedores {
     }
 
     public int insertarProveedor(TOProveedores proveedor) {
-        String[] Valores = {proveedor.getEmpresa(), proveedor.getEstadoProveedor(), proveedor.getNitEmpresa(), proveedor.getTelefonoEmpresa(), proveedor.getDireccionEmpresa(), proveedor.getCorreoEmpresa()};
+        String[] Valores = {String.valueOf(proveedor.getIdUsuarioProveedor()),proveedor.getEmpresa(), proveedor.getEstadoProveedor(), proveedor.getNitEmpresa(), proveedor.getTelefonoEmpresa(), proveedor.getDireccionEmpresa(), proveedor.getCorreoEmpresa()};
         try {
             return con.insertar(nombreTabla, Valores);
         } catch (Exception ex) {

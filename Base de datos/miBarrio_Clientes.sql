@@ -25,13 +25,13 @@ DROP TABLE IF EXISTS `Clientes`;
 CREATE TABLE `Clientes` (
   `idClientes` int(11) NOT NULL AUTO_INCREMENT,
   `idUsuarioCliente` int(11) NOT NULL,
-  `credito` double NOT NULL,
+  `credito` varchar(4) NOT NULL,
   `estadoCliente` varchar(45) NOT NULL,
   PRIMARY KEY (`idClientes`),
   UNIQUE KEY `idClientes_UNIQUE` (`idClientes`),
   KEY `UsuariCliente_idx` (`idUsuarioCliente`),
   CONSTRAINT `UsuariCliente` FOREIGN KEY (`idUsuarioCliente`) REFERENCES `Usuarios` (`idUsuarios`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `Clientes` (
 
 LOCK TABLES `Clientes` WRITE;
 /*!40000 ALTER TABLE `Clientes` DISABLE KEYS */;
-INSERT INTO `Clientes` VALUES (1,4,0,'activo');
+INSERT INTO `Clientes` VALUES (1,4,'0','activo'),(2,15,'Si','Activo');
 /*!40000 ALTER TABLE `Clientes` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-04 16:11:11
+-- Dump completed on 2021-10-05 17:44:18

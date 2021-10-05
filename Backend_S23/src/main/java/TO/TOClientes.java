@@ -12,20 +12,20 @@ package TO;
 public class TOClientes extends TOUsuarios {
     public int idClientes;
     public int idUsuarioCliente;
-    public double credito;
+    public String credito;
     public String estadoCliente;
 
     public TOClientes() {
     }
 
-    public TOClientes(int idUsuarioCliente, double credito, String estadoCliente, String nombres, String apellidos, String tipoUsuario) {
+    public TOClientes(int idUsuarioCliente, String credito, String estadoCliente, String nombres, String apellidos, String tipoUsuario) {
         super(nombres, apellidos, tipoUsuario);
         this.idUsuarioCliente = idUsuarioCliente;
         this.credito = credito;
         this.estadoCliente = estadoCliente;
     }
 
-    public TOClientes(int idUsuarioCliente, double credito, String estadoCliente, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
+    public TOClientes(int idUsuarioCliente, String credito, String estadoCliente, String nombres, String apellidos, String tipoUsuario, String tipoDocumento, String documento, String telefono, String direccion, String correo) {
         super(nombres, apellidos, tipoUsuario, tipoDocumento, documento, telefono, direccion, correo);
         this.idUsuarioCliente = idUsuarioCliente;
         this.credito = credito;
@@ -48,11 +48,11 @@ public class TOClientes extends TOUsuarios {
         this.idUsuarioCliente = idUsuarioCliente;
     }
 
-    public double getCredito() {
+    public String getCredito() {
         return credito;
     }
 
-    public void setCredito(double credito) {
+    public void setCredito(String credito) {
         this.credito = credito;
     }
 

@@ -7,6 +7,7 @@ package controller;
 
 import DAO.DAOClientes;
 import TO.TOClientes;
+import TO.TOUsuarios;
 import java.util.ArrayList;
 
 /**
@@ -26,18 +27,27 @@ public class CtrClientes {
             return clientesDAO.consultarClientes();      
     }
 
-    public int isertarClientes (TOClientes cliente){
+    public int isertarClientes (TOUsuarios usuario, TOClientes cliente){
             usuariosCtr = new CtrUsuarios();
-            cliente.setIdUsuarioCliente(usuariosCtr.isertarUsuarios(cliente));
+            usuario.setTipoUsuario("Cliente");
+            cliente.setIdUsuarioCliente(usuariosCtr.isertarUsuarios(usuario));
            return clientesDAO.insertarCliente(cliente);
+           
     }
     // actualizar en foto
-    public boolean modificarCliente(TOClientes cliente){
+    public boolean modificarCliente(TOUsuarios usuario, TOClientes cliente){
+            usuariosCtr = new CtrUsuarios();
+            usuario.setIdUsuarios(cliente.getIdUsuarioCliente());
+            usuariosCtr.modificarUsuarios(usuario);
             return clientesDAO.modificarCliente(cliente);
+            
     }
     //Eleiminar en foto
-    public boolean eliminarCliente(int id){
-            return clientesDAO.eliminarCliente(id);
+    public boolean eliminarCliente(TOClientes cliente){
+            clientesDAO.eliminarCliente(cliente.getIdClientes());
+            usuariosCtr = new CtrUsuarios();
+            return usuariosCtr.eliminarUsuarios(cliente.getIdUsuarioCliente());
+       
     }
      
 }

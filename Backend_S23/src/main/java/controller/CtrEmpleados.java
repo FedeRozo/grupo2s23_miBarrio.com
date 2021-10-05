@@ -23,7 +23,6 @@ public class CtrEmpleados {
     public CtrEmpleados () {
         empleadosDAO = new DAOEmpleados();
     }
-    
     //consultar y crear usuarios.
     public ArrayList <TOEmpleados> consultarEmpleados() {
             return empleadosDAO.consultarEmpleados();      
